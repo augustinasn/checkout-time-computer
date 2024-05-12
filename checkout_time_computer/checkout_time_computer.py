@@ -13,6 +13,12 @@ class CheckoutTimeComputer:
             customers (List[int]): List of positive integers representing the customers' checkout times.
             n (int): Number of checkout counters.
         """
+        if not isinstance(customers, list) or not all(isinstance(customer, int) and customer > 0 for customer in customers):
+            raise ValueError("Customers must be a list of positive integers.")
+
+        if not isinstance(n, int) or n <= 0:
+            raise ValueError("Number of checkout counters must be a positive integer.")
+
         self.customers = customers
         self.n = n
 
